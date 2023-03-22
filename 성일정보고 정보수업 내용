@@ -1,0 +1,26 @@
+for (변수명) in (실행문) : 
+  Ture 실행문(들)
+
+range([start],stop,[step]):
+
+for 변수명 in range(num):
+  True실행문
+
+(
+num=int(input("enter the repeat number :")) # 정수를 입력
+for i in range(num): # 정수를 입력한 만큼 반복
+  print("you are so good student") # you are so good student 을 출력 
+  )
+ 
+ for 변수명 in 문자열 : 
+  True 실행문(들)
+문자열 범위에 포함된 문자 각각에 대해서 변수에 저장
+
+(
+cnt = 1 # cnt라는 변수를 1을 대입
+chr = input("enter the string :") # chr 라는 변수를 자신이 정한 임의 어떤것을 대입
+for i in chr:
+  print(cnt, '번째 알파벳:', chr[cnt-1]) #print(cnt, '번째 알파벳:',i)
+  cnt=cnt+1 #cnt+1를 하여 cnt의 값을 1을 증가
+)
+
