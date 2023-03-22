@@ -1,0 +1,53 @@
+for (변수명) in (실행문) : 
+  Ture 실행문(들)
+
+range([start],stop,[step]):
+
+for 변수명 in range(num):
+  True실행문
+
+(
+num=int(input("enter the repeat number :")) # 정수를 입력
+for i in range(num): # 정수를 입력한 만큼 반복
+  print("you are so good student") # you are so good student 을 출력 
+  )
+ 
+ for 변수명 in 문자열 : 
+  True 실행문(들)
+문자열 범위에 포함된 문자 각각에 대해서 변수에 저장
+
+(
+cnt = 1 # cnt라는 변수를 1을 대입
+chr = input("enter the string :") # chr 라는 변수를 자신이 정한 임의 어떤것을 대입
+for i in chr:
+  print(cnt, '번째 알파벳:', chr[cnt-1]) #print(cnt, '번째 알파벳:',i)
+  cnt=cnt+1 #cnt+1를 하여 cnt의 값을 1을 증가
+)
+
+[break문] # while 조건을 만족하고 break 좋건을 만족하지 않는 동안 True 실행문(들)을 반복적으로 수행 | break 조건에 만족하면 반복을 중단하고 while문을 빠져나감
+
+while 조건 :
+  break 조건 : 
+    break
+  True 실행문()
+
+while(True) : #자신의 임의로 입력한 수가 홀수인지 짝수인지 구분해주는 코드
+  num=int(input("input the number :")) #임의의 정수를 입력
+  if num == -1 : #만약 임의의 수가 -1이면 종료
+    print("stop") # stop을 출력
+    break
+  if num%2==0 : # 만약 임의의 수가 2의 배수이면 true실행문 실행 아니면 false실행문 실행
+    print(num, 'is even') # 2의 배수이면 even
+  else :
+    print(num, 'is odd') # 2의 배수가 아니면 odd
+    
+ [만약에 어던 입력받은 수가 3의 배수이면 ok 아니면no 이면서 음수 혹은 0이면 stop을 출력하고 종료]
+ while(True) :
+  num=  int(input("input the number :")) 
+  if num <= 0 :
+    print("stop")
+    break
+  if num%3==0 :
+    print(num, 'ok')
+  else :
+    print(num, 'no')
