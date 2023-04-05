@@ -14,3 +14,17 @@ else :         #만약 b가>a보다 클 경우 b가 승리
 elif문을 활용하여 비기는경우, 보를 가위가 이기는 경우를 포함하야 코드를 짤것(노가다;;)
 a=int(input()) #수를 입력받음
 b=int(input()) #수를 입력받음
+elif문을 활용하여 비기는경우, 보를 가위가 이기는 경우를 포함하야 코드를 짤것(노가다;;)
+a=int(input()) #수를 입력받음
+b=int(input()) #수를 입력받음
+
+if a == 1 and b == 3: # a가 1 b가 3일 경우 a가 승리
+  print("a승리")
+elif b == 1 and a == 3: # b가 1 a가 3일 경우 b가 승리
+  print("b승리")
+elif a==b: # a==b일 경우 비겼습니다 출력
+  print("비겼습니다")
+elif b>a : #b가 a보다 클 경우 b승리
+  print("b승리")
+else :    #b가 3 a가 1일 경우 같이 출력 되기에 else문을 사용해서 b가 3 a가 1을 제외한 나머지의 경우 a가 승리
+  print("a승리")
