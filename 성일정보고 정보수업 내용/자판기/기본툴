@@ -1,0 +1,44 @@
+soda={
+    "콜라":1900,
+    "밀키스":1010,
+    "몬스터":2300,
+    "사이다":1700
+    }
+min_money=min(soda.values())
+#ge=int(input) #갯수
+
+print("--------------------------------------")
+print("어서오세요 천재와 멍청이들의 자판기입니다")
+print('자판기를 사용하실거면 1번 입력하시고 종료하실거면 2번을 입력해주세요')
+start=input()
+
+if start=="1":
+
+    print("돈을 넣으세요")
+    money=int(input())
+    if money>=min_money:
+        print("------------------메뉴-------------------")
+        for i in soda:
+            print(i,soda[i])
+        print("--------------------------------------")
+        print("수정을 하실거면 1번 추가를 하실거면 2번 안하실거면 3번을 입력하세요")
+        cc=int(input())
+        if cc==1:
+            print("수정")
+            
+            print(soda.keys())
+            print("중에 어떤걸 수정하시겠습니까")
+        elif cc==2:
+            print("추가")
+            add_soda=input()
+            add_soda_m=int(input())
+            soda[add_soda]=add_soda_m
+            
+            
+            
+        elif cc==3:
+            print("계속 실행합니다")
+
+        
+    elif money<min_money:
+        print("지불 급액이 부족하여 종료합니다")
