@@ -49,11 +49,11 @@ while True:
                     aa = input("메뉴 이름을 바꾸시겠습니까 아니면 가격을 바꾸겠습니까? ")
                     if aa == "메뉴":
                         me = str(input("바꾸고 싶은 이름 "))
-                    if me not in soda:
-                        soda[me] = soda.pop(ab)
-                elif aa == "가격":
-                    mm = int(input("변경할 가격 금액 "))
-                    soda[ab] = mm
+                        if me not in soda:
+                            soda[me] = soda.pop(ab)
+                    elif aa == "가격":
+                        mm = int(input("변경할 가격 금액 "))
+                        soda[ab] = mm
 
       
             elif cc==2:
@@ -111,15 +111,13 @@ while True:
                                             y += total // yy
                                             total%= yy
                                         
-                                        print(f'500원 {q}개 100원 {w}개 \n50원 {e}개 \n10원 {r}개 \n5원 {t}개 \n1원 {y}개')
-                                        print(f'총합 {q+w+e+r+t+y}원입니다')
+                                        print(f'500원 {q}개 \n100원 {w}개 \n50원 {e}개 \n10원 {r}개 \n5원 {t}개 \n1원 {y}개')
+                                        print(f'총합 {(500*q)+(100*w)+(50*e)+(10*r)+(5*t)+(1*y)}원입니다')
                                         print("--------------------------------------")
-                                        print(" ")
+                                        
                                         total+=0
                                 
-
-                                        print("--------------------------------------")
-                                        print(" ")
+                                        
                                         break
                         
                                     elif lili>money:
