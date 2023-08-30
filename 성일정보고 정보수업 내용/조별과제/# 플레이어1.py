@@ -18,14 +18,19 @@ time.sleep(1)
 
 for i in range(1,4) :
     #print("10개의 숫자 중 뽑을 숫자을 선택해주세요.")
-    time.sleep(1)
+    time.sleep(0.5)
     choise = int(input("10개의 숫자 중 뽑을 숫자을 선택해주세요. : "))
     print("-"*50)
     if choise > 10 :
         print("올바른 숫자를 입력해주세요.")
         print("-"*50)
         time.sleep(1)
+        i-=1
+        continue
     MyDeck1.append(RandomDeck1[choise-1])
+
+print(MyDeck1)
+            
 
 num1 = MyDeck1.pop()
 num2 = MyDeck1.pop()
@@ -58,7 +63,7 @@ print("-"*50)
 
 for i in range(1,4) :
     #print("10개의 숫자 중 뽑을 숫자을 선택해주세요.")
-    time.sleep(1)
+    time.sleep(0.5)
     choise = int(input("10개의 숫자 중 뽑을 숫자을 선택해주세요. : "))
     print("-"*50)
     if choise > 10 :
