@@ -98,7 +98,7 @@ class Tamagochi:
 
 # 게임 시작
 while True:
-    print(" 이 게임은 다마고치라는 ")
+    print(" 이 게임은 다마고치라는 게임입니다")
 
     pet_name = input("당신의 다마고치 이름을 설정 해주세요. : ")
     pet = Tamagochi(pet_name)
