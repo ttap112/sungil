@@ -95,28 +95,92 @@ class Tamagochi:
     def stats(self):
         print(f'이름 : {self.name} \n나이 : {self.age} \n배고픔 : {self.hungry} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n행복도 : {self.happiness} \n친밀도 : {self.intimacy} \n질병 감염도 : {self.disease}')
 
-print("이 게임은 다마고치라는 게임입니다")
-print("먼저 캐릭터 이름을 설정해주세요")
+print("게임 시작 및 설명을 앞서 먼저 자신의 펫 이름을 정해주십시오.")
+print("-"*50)
 time.sleep(0.5)
 
+# 이름 선택
 while True:
     pet_name = input("당신의 다마고치 이름을 설정 해주세요. : ")
+    print("-"*50)
     pet = Tamagochi(pet_name)
     
     time.sleep(0.5)
-    ㅗ
+    cho=0
     
+    # 이름 결정
     while True:
       try:
         print(f'정말로 {pet.name} 으로 하시겠습니다     Y/N')
-        Choice = input("Yes | No ")
+        Choice = input("Yes | No : ")
+        print("-"*50)
         if Choice == "Yes":
             print(f'당신의 다마고치의 이름은 {pet.name} 입니다')
+            print("-"*50)
             time.sleep(0.5)
+            cho+=1
             break
         elif Choice == "No":
-            print("펫 이름을 다시 설정합니다")
+            print("펫 이름을 다시 설정합니다. ")
+            print("-"*50)
             time.sleep(0.5)
-      except:
-        print("Yes 또는 No를 입력하지 않았습니다.")
-    break
+            cho=0
+            break
+        else:
+          raise ValueError("잘못 입력하였습니다.")
+      except ValueError :
+        print("잘못입력하였습니다. 다시 입력하시오.")
+        print("-"*50)
+    if cho==1:
+      break
+
+time.sleep(0.5)
+start_choice = input("게임 설명을 들을 실거면 1. \n게임 시작을 하실거면 2. \n선택 : ")
+
+#게임 규칙
+if start_choice == "1":
+  time.sleep(0.5)
+  print("다마고치는 펫 육성 시물레이션 게임이며 \n자신이 입력한 명령에 따라 펫이 그에 대한  \n출력을 하여 텍스트로 보여줍니다 \n그리고 행복도, 감염도, 배고픔, 스트레스 \n나이, 친밀도에 따라 여러 이벤트가 나오며 \n특정한 조건을 달성하면 펫이 죽을 수 도 있습니다.")
+
+#게임 시작
+if start_choice =="2":
+  Year=0
+  Month=0
+  Day=0
+  while True:
+    print(f' {Year}년 {Month}월 {Day}일 경과 ')
+    time.sleep(0.5)
+    Day+=1
+
+    # 날짜 경과
+    if Day==30:
+      Month+=1
+      Day=0
+      if Month == 12:
+        Year +=1
+        Month=0
+
+    #부화
+    if Month == 2:
+     
+      print("알이 부화하였습니다.")
+      print(f'f{pet.name}은 세상에 처음 나와 당황하고 있습니다.')
+      print(f'{pet.name} 위해 무엇을 하시겠습니까.')
+     
+      choice1=input("1. 지켜보기 2. 조심스레 만져보기")
+     
+      if choice1 =='1':
+        print(f'당신은 {pet.name}을 관찰하고 있습니다.')
+        print(f'{pet.name}은 당신을 보호자라고 생각하는 중입니다.')
+        break
+      elif choice1 =='2':
+        print(f'당신은 {pet.name}을 조심스레 만져보기로 했습니다')
+        break
+        
+
+#이벤트
+
+#친밀도에 따른 이벤트
+
+# 행복도에 따른 이벤트
+
