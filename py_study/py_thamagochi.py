@@ -38,79 +38,92 @@ class Tamagochi:
 
     # 먹이
     def feed(self):
-        self.hungry -= random.randint(5, 10)
-        self.happiness += random.randint(-3, 5)
-        self.stress += random.randint(-3, 5)
-        self.tired += random.randint(-2, 5)
-        self.intimacy += random.randint(1, 3)
-        self.disease += random.randint(-10, 5)
+        self.hungry -= random.randint(5,10)
+        self.happiness += random.randint(1,1)
+        self.stress += random.randint(1,2)
+        self.tired += random.randint(1, 1)
+        self.intimacy += random.randint(1, 2)
+        self.disease += random.randint(-5, 5)
         if self.disease < 0:
             self.disease = 0
+        time.sleep(0.2)
         print("변경되었습니다....")
         time.sleep(0.2)
-        print(f' 배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
+        print("-" * 50)
+        time.sleep(0.2)
+        print(f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
 
     # 놀이
     def play(self):
-        self.hungry -= random.randint(1, 5)
-        self.happiness += random.randint(1, 3)
-        self.stress += random.randint(1, 4)
-        self.tired += random.randint(-5, 2)
+        self.hungry -= random.randint(1, 3)
+        self.happiness += random.randint(2, 4)
+        self.stress -= random.randint(3,4)
+        self.tired += random.randint(1, 3)
         self.intimacy += random.randint(1, 3)
-        self.disease += random.randint(-10, 8)
+        self.disease += random.randint(-10, 6)
         if self.disease < 0:
             self.disease = 0
         print("변경되었습니다....")
         time.sleep(0.2)
-        print(f' 배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
+        print("-" * 50)
+        time.sleep(0.2)
+        print(f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
 
     # 잠
     def sleep(self):
-        self.hungry += random.randint(-5, -1)
-        self.happiness += random.randint(1, 3)
-        self.stress += random.randint(1, 2)
-        self.tired += random.randint(1, 5)
-        self.intimacy += random.randint(1)
+        self.hungry += random.randint(-3, -1)
+        self.happiness += random.randint(3, 5)
+        self.stress -= random.randint(2, 4)
+        self.tired -= random.randint(4, 5)
+        self.intimacy += random.randint(1,3)
         self.disease += random.randint(-5, -1)
         if self.disease < 0:
             self.disease = 0
         print("변경되었습니다....")
         time.sleep(0.2)
-        print(f' 배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
-
+        print("-" * 50)
+        time.sleep(0.2)
+        print(f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
 
     # 샤워
     def wash(self):
-        self.hungry += random.randint(-3, -1)
+        self.hungry += random.randint(-2, -1)
         self.happiness += random.randint(1, 2)
-        self.stress += random.randint(1, 3)
-        self.tired += random.randint(-3, 1)
+        self.stress += random.randint(1, 2)
+        self.tired += random.randint(1, 1)
         self.intimacy += random.randint(1, 2)
         self.disease += random.randint(-10, 0)
         if self.disease < 0:
             self.disease = 0
+        time.sleep(0.2)
         print("변경되었습니다....")
         time.sleep(0.2)
-        print(f' 배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
+        print("-" * 50)
+        time.sleep(0.2)
+        print(f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
 
     # 영화
     def movie(self):
-
-        self.hungry += random.randint(-3, 3)
-        self.happiness += random.randint(1, 5)
-        self.stress += random.randint(1, 3)
-        self.tired += random.randint(-3, 1)
-        self.intimacy += random.randint(1, 3)
-        self.disease += random.randint(-10, 8)
+        self.hungry += random.randint(-2, 1)
+        self.happiness += random.randint(3, 5)
+        self.stress -= random.randint(2, 5)
+        self.tired += random.randint(1, 2)
+        self.intimacy += random.randint(1, 2)
+        self.disease += random.randint(-10, 6)
         if self.disease < 0:
             self.disease = 0
+        print("-" * 50)
+        time.sleep(0.2)
         print("변경되었습니다....")
         time.sleep(0.2)
-        print(f' 배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
+        print("-" * 50)
+        time.sleep(0.2)
+        print(f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
 
     # 스텟 확인
     def stats(self):
         print(f'이름 : {self.name} \n나이 : {self.age} \n배고픔 : {self.hungry} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n행복도 : {self.happiness} \n친밀도 : {self.intimacy} \n질병 감염도 : {self.disease}')
+        print("-" * 50)
 
 print("게임 시작 및 설명을 앞서 먼저 자신의 펫 이름을 정해주십시오.")
 print("-" * 50)
@@ -189,6 +202,7 @@ while True:
 
 # 게임 시작
 while True:
+    print("")
     print(f'{Year}년 {Month}월 {Day}일 경과 ')
     print("-" * 50)
     time.sleep(0.5)
@@ -302,27 +316,26 @@ while True:
             break
 
     Day+=1
-    print('하루가 경과하였습니다.')
     time.sleep(0.5)
 
 # 계속 진행
+print(f'{Year}년 {Month}월 {Day}일 경과 ')
+print("-" * 50)
 while True:
-    print(f'{Year}년 {Month}월 {Day}일 경과 ')
-    print("-" * 50)
     time.sleep(0.2)
     print(f'당신은 {pet.name}을 위해 무엇을 하시겠습까?')
     print("-" * 50)
     time.sleep(0.2)
     while True:
-        try
-            print(f'1. 밥 먹기'
-            f'2. 놀기'
-            f'3. 영화보기'
-            f'4. 잠자기'
-            f'5. 씻기'
-            f'6. 상태 확인하기'
-            )
+        try:
+            print('1.밥 먹기 \n2.놀기 \n3.영화보기 \n4.잠자기 \n5.씻기 \n6.상태 확인하기')
+            print("-"*50)
+            time.sleep(0.3)
+
             choice = input("선택 : ")
+            print("-" * 50)
+            time.sleep(0.3)
+
             if choice == '1':
                 pet.feed()
                 break
@@ -340,7 +353,6 @@ while True:
                 break
             elif choice == '6':
                 pet.stats()
-                break
             else:
                 raise ValueError("에러 발생")
         except ValueError:
@@ -348,19 +360,18 @@ while True:
             print("-"*50)
             time.sleep(0.2)
 
-    pet.stress += random.randint(1, 5)
-    pet.hungry -= random.randint(1, 5)
-    pet.happiness -= random.randint(1, 5)
-    pet.tired += random.randint(1, 5)
-    pet.disease += random.randint(-10, 1)
-    if pet.disease <= 0:
-        pet.disease = 0
+    pet.stress += random.randint(1, 3)
+    pet.hungry -= random.randint(1, 3)
+    pet.happiness -= random.randint(1, 3)
+    pet.tired += random.randint(1, 3)
 
     time.sleep(0.5)
-
-    print(f'당신의 {pet.name}의 상태 \n스트레스 : {pet.stress} \n배고픔 : {pet.hungry} \n피곤함 : {pet.tired} \n감염도 : {pet.disease}')
-    print("-" * 50)
     Day += 1
+    print("-" * 50)
+    print(f'{Year}년 {Month}월 {Day}일 경과 ')
+    print("-" * 50)
+    print(f'당신의 {pet.name} 상태 \n배고픔 : {pet.hungry} \n행복도 : {pet.happiness} \n스트레스 : {pet.stress} \n피곤함 : {pet.tired} \n친밀도 : {pet.intimacy} \n감염도 : {pet.disease}')
+    print("-" * 50)
     time.sleep(0.5)
 
     if Day == 30:
@@ -370,9 +381,9 @@ while True:
              Year += 1
              Month = 0
 
-
     # 이벤트
 
     # 친밀도에 따른 이벤트
 
     # 행복도에 따른 이벤트
+
