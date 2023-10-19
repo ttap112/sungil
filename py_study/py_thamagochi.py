@@ -1,9 +1,10 @@
 import random
 import time
 
+Yes=["Yes","yes","네","응","ㅇ","d"]
+No=["No","no","아니요","아니","ㄴ","s"]
+
 # 초기화 및 기본 설정
-
-
 class Tamagochi:
     def __init__(self, name):
 
@@ -45,6 +46,9 @@ class Tamagochi:
         self.disease += random.randint(-10, 5)
         if self.disease < 0:
             self.disease = 0
+        print("변경되었습니다....")
+        time.sleep(0.2)
+        print(f' 배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
 
     # 놀이
     def play(self):
@@ -56,6 +60,9 @@ class Tamagochi:
         self.disease += random.randint(-10, 8)
         if self.disease < 0:
             self.disease = 0
+        print("변경되었습니다....")
+        time.sleep(0.2)
+        print(f' 배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
 
     # 잠
     def sleep(self):
@@ -67,6 +74,10 @@ class Tamagochi:
         self.disease += random.randint(-5, -1)
         if self.disease < 0:
             self.disease = 0
+        print("변경되었습니다....")
+        time.sleep(0.2)
+        print(f' 배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
+
 
     # 샤워
     def wash(self):
@@ -78,6 +89,9 @@ class Tamagochi:
         self.disease += random.randint(-10, 0)
         if self.disease < 0:
             self.disease = 0
+        print("변경되었습니다....")
+        time.sleep(0.2)
+        print(f' 배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
 
     # 영화
     def movie(self):
@@ -90,97 +104,275 @@ class Tamagochi:
         self.disease += random.randint(-10, 8)
         if self.disease < 0:
             self.disease = 0
+        print("변경되었습니다....")
+        time.sleep(0.2)
+        print(f' 배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
 
     # 스텟 확인
     def stats(self):
         print(f'이름 : {self.name} \n나이 : {self.age} \n배고픔 : {self.hungry} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n행복도 : {self.happiness} \n친밀도 : {self.intimacy} \n질병 감염도 : {self.disease}')
 
 print("게임 시작 및 설명을 앞서 먼저 자신의 펫 이름을 정해주십시오.")
-print("-"*50)
+print("-" * 50)
 time.sleep(0.5)
 
 # 이름 선택
 while True:
     pet_name = input("당신의 다마고치 이름을 설정 해주세요. : ")
-    print("-"*50)
+    print("-" * 50)
     pet = Tamagochi(pet_name)
-    
+
     time.sleep(0.5)
-    cho=0
-    
+    cho = 0
+
     # 이름 결정
     while True:
-      try:
-        print(f'정말로 {pet.name} 으로 하시겠습니다     Y/N')
-        Choice = input("Yes | No : ")
-        print("-"*50)
-        if Choice == "Yes":
-            print(f'당신의 다마고치의 이름은 {pet.name} 입니다')
-            print("-"*50)
-            time.sleep(0.5)
-            cho+=1
-            break
-        elif Choice == "No":
-            print("펫 이름을 다시 설정합니다. ")
-            print("-"*50)
-            time.sleep(0.5)
-            cho=0
-            break
-        else:
-          raise ValueError("잘못 입력하였습니다.")
-      except ValueError :
-        print("잘못입력하였습니다. 다시 입력하시오.")
-        print("-"*50)
-    if cho==1:
-      break
+        try:
+            print(f'정말로 {pet.name} 으로 하시겠습니다  \n---Y|N---')
+            Choice = input("Yes | No : ")
+            print("-" * 50)
+            if Choice in Yes:
+                print(f'당신의 다마고치의 이름은 {pet.name}입니다')
+                print("-" * 50)
+                time.sleep(0.5)
+                cho += 1
+                break
+            elif Choice in No:
+                print("펫 이름을 다시 설정합니다. ")
+                print("-" * 50)
+                time.sleep(0.5)
+                cho = 0
+                break
+            else:
+                raise ValueError("잘못 입력하였습니다.")
+        except ValueError:
+            print("잘못입력하였습니다. 다시 입력하시오.")
+            print("-" * 50)
+    if cho == 1:
+        break
 
 time.sleep(0.5)
-start_choice = input("게임 설명을 들을 실거면 1. \n게임 시작을 하실거면 2. \n선택 : ")
 
-#게임 규칙
-if start_choice == "1":
-  time.sleep(0.5)
-  print("다마고치는 펫 육성 시물레이션 게임이며 \n자신이 입력한 명령에 따라 펫이 그에 대한  \n출력을 하여 텍스트로 보여줍니다 \n그리고 행복도, 감염도, 배고픔, 스트레스 \n나이, 친밀도에 따라 여러 이벤트가 나오며 \n특정한 조건을 달성하면 펫이 죽을 수 도 있습니다.")
+# 게임 설명
+while True:
+    try:
+        start_choice = input("게임 설명을 들을 실거면 1. \n게임 시작을 하실거면 2. \n선택 : ")
+        print("-" * 50)
+        time.sleep(0.3)
 
-#게임 시작
-if start_choice =="2":
-  Year=0
-  Month=0
-  Day=0
-  while True:
-    print(f' {Year}년 {Month}월 {Day}일 경과 ')
+        # 게임 규칙
+        if start_choice == "1":
+            time.sleep(0.5)
+            print("-" * 50)
+            print(
+                "다마고치는 펫 육성 시물레이션 게임이며 \n자신이 입력한 명령에 따라 펫이 그에 대한  \n출력을 하여 텍스트로 보여줍니다 \n그리고 행복도, 감염도, 배고픔, 스트레스 \n나이, 친밀도에 따라 여러 이벤트가 나오며 \n특정한 조건을 달성하면 펫이 죽을 수 도 있습니다.")
+            print("-" * 50)
+            time.sleep(3)
+
+        # 게임 시작
+        elif start_choice == "2":
+            Year = 0
+            Month = 0
+            Day = 0
+            print("게임을 시작합니다.")
+            print("-" * 50)
+
+            for i in range(100):  # 100부터 0까지
+                print('\r로딩 중 : {0} {1}%'.format('█' * (i // 5), i), end='')
+                time.sleep(0.2)
+            break
+        else:
+            raise ValueError("에러 발생")
+    except ValueError:
+        print("잘못 입력하였습니다.")
+        print("-" * 50)
+
+# 게임 시작
+while True:
+    print(f'{Year}년 {Month}월 {Day}일 경과 ')
+    print("-" * 50)
     time.sleep(0.5)
-    Day+=1
 
     # 날짜 경과
-    if Day==30:
-      Month+=1
-      Day=0
-      if Month == 12:
-        Year +=1
-        Month=0
+    if Day == 30:
+        Month += 1
+        Day = 0
+        if Month == 12:
+            Year += 1
+            Month = 0
 
-    #부화
-    if Month == 2:
-     
-      print("알이 부화하였습니다.")
-      print(f'f{pet.name}은 세상에 처음 나와 당황하고 있습니다.')
-      print(f'{pet.name} 위해 무엇을 하시겠습니까.')
-     
-      choice1=input("1. 지켜보기 2. 조심스레 만져보기")
-     
-      if choice1 =='1':
-        print(f'당신은 {pet.name}을 관찰하고 있습니다.')
-        print(f'{pet.name}은 당신을 보호자라고 생각하는 중입니다.')
-        break
-      elif choice1 =='2':
-        print(f'당신은 {pet.name}을 조심스레 만져보기로 했습니다')
-        break
-        
+    # 부화
+    if Day == 15:
 
-#이벤트
+        print("알이 부화하였습니다.")
+        print("-" * 50)
+        time.sleep(0.3)
 
-#친밀도에 따른 이벤트
+        print(f'{pet.name}은 세상에 처음 나와 당황하고 있습니다.')
+        print("-" * 50)
+        time.sleep(0.3)
 
-# 행복도에 따른 이벤트
+        print(f'{pet.name} 위해 무엇을 하시겠습니까.')
+        print("-" * 50)
+        time.sleep(0.3)
 
+
+        choice1_1 = 0
+        # 선택 1-1
+        while True:
+            try:
+                choice1 = input("1. 지켜보기 2. 조심스레 만져보기 \n선택 : ")
+                print("-" * 50)
+
+                if choice1 == '1' or choice1 == '2':
+                    choice1_1=choice1
+                    break
+                else:
+                    raise ValueError("에러 발생")
+            except ValueError:
+                print("잘못 입력하였습니다.")
+
+        # 선택 1-2
+        if choice1_1 == '1':
+            time.sleep(0.3)
+            print(f'당신은 {pet.name}을 관찰하고 있습니다.')
+            print("-" * 50)
+            time.sleep(0.3)
+
+            print(f'{pet.name}은 당신을 경계하고 있는 중입니다.')
+            print("-" * 50)
+            time.sleep(0.3)
+
+            for i in range(100, -1, -1):  # 100부터 0까지
+                print('\r경계 게이지 : {0} {1}%'.format('█' * (i // 5), i), end='')
+                time.sleep(0.1)
+            print("")
+            print("-" * 50)
+            print(f'{pet.name}은 당신에게 경계를 풀고 주인으로 인식 하는것 같다.')
+            print("-" * 50)
+
+            for i in range(101):  # 0부터 100까지
+                print('\r인식 게이지 : {0} {1}%'.format('█' * (i // 4), i), end='')
+                time.sleep(0.2)
+            print("")
+            print("-" * 50)
+            print(f' {pet.name}은 당신을 주인으로 생각하는 것 같다. ')
+            print("-" * 50)
+            break
+
+
+        elif choice1_1 == '2':
+            time.sleep(0.3)
+            print(f'당신은 {pet.name}을 조심스레 만져보기로 했습니다')
+            print("-" * 50)
+            time.sleep(2)
+
+            print(f'{pet.name}은 당신을 깨물었습니다')
+            print("-" * 50)
+            time.sleep(2)
+
+            print('아직 당신을 경계 하는것 같습니다.')
+            print("-" * 50)
+            time.sleep(2)
+
+            print(f'당신은 용기를 내어 다시 조심스럽게 만져보기로 했습니다.')
+            print("-" * 50)
+            time.sleep(2)
+
+            print(f'{pet.name}은 당신을 경계하고 있지만 깨물지는 않았습니다.')
+            print("-" * 50)
+            time.sleep(2)
+
+            print(f'당신은 {pet.name}을 용기를 내어 더 열심히 만져보기로 했습니다.')
+            print("-" * 50)
+            time.sleep(2)
+
+            print(f'{pet.name}은 당신의 손길을 거부하지 않고 받아들이기로 하였습니다.')
+            print("-" * 50)
+            time.sleep(2)
+
+            for i in range(1,11):
+                print("."*i)
+                time.sleep(0.3)
+
+            print("-" * 50)
+            print(f'{pet.name}은 당신을 주인으로 받아들이로 한것 같습니다.')
+            print("-" * 50)
+            time.sleep(1)
+            break
+
+    Day+=1
+    print('하루가 경과하였습니다.')
+    time.sleep(0.5)
+
+# 계속 진행
+while True:
+    print(f'{Year}년 {Month}월 {Day}일 경과 ')
+    print("-" * 50)
+    time.sleep(0.2)
+    print(f'당신은 {pet.name}을 위해 무엇을 하시겠습까?')
+    print("-" * 50)
+    time.sleep(0.2)
+    while True:
+        try
+            print(f'1. 밥 먹기'
+            f'2. 놀기'
+            f'3. 영화보기'
+            f'4. 잠자기'
+            f'5. 씻기'
+            f'6. 상태 확인하기'
+            )
+            choice = input("선택 : ")
+            if choice == '1':
+                pet.feed()
+                break
+            elif choice =='2':
+                pet.play()
+                break
+            elif choice == '3':
+                pet.movie()
+                break
+            elif choice == '4':
+                pet.sleep()
+                break
+            elif choice == '5':
+                pet.wash()
+                break
+            elif choice == '6':
+                pet.stats()
+                break
+            else:
+                raise ValueError("에러 발생")
+        except ValueError:
+            print("다시 입력하십시오")
+            print("-"*50)
+            time.sleep(0.2)
+
+    pet.stress += random.randint(1, 5)
+    pet.hungry -= random.randint(1, 5)
+    pet.happiness -= random.randint(1, 5)
+    pet.tired += random.randint(1, 5)
+    pet.disease += random.randint(-10, 1)
+    if pet.disease <= 0:
+        pet.disease = 0
+
+    time.sleep(0.5)
+
+    print(f'당신의 {pet.name}의 상태 \n스트레스 : {pet.stress} \n배고픔 : {pet.hungry} \n피곤함 : {pet.tired} \n감염도 : {pet.disease}')
+    print("-" * 50)
+    Day += 1
+    time.sleep(0.5)
+
+    if Day == 30:
+         Month += 1
+         Day = 0
+         if Month == 12:
+             Year += 1
+             Month = 0
+
+
+    # 이벤트
+
+    # 친밀도에 따른 이벤트
+
+    # 행복도에 따른 이벤트
