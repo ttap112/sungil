@@ -102,4 +102,17 @@ time.sleep(0.5)
 while True:
     pet_name = input("당신의 다마고치 이름을 설정 해주세요. : ")
     pet = Tamagochi(pet_name)
-    print(f'정말로 {pet.name} 으로 하시겠습니다')
+    
+    time.sleep(0.5)
+    
+    print(f'정말로 {pet.name} 으로 하시겠습니다     Y/N')
+    Choice = input("Yes | No ")
+    
+    if Choice == "Yes":
+        print(f'당신의 다마고치의 이름은 {pet.name} 입니다')
+        time.sleep(0.5)
+        break
+    elif Choice == "No":
+        print("펫 이름을 다시 설정합니다")
+        time.sleep(0.5)
+    
