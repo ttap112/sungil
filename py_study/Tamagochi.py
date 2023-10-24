@@ -1,5 +1,6 @@
 import random
 import time
+import sys
 
 # 초기화 및 기본 설정
 
@@ -97,10 +98,84 @@ class Tamagochi:
 
 
 # 게임 시작
-while True:
-    print(" 이 게임은 다마고치라는 게임입니다")
 
-    pet_name = input("당신의 다마고치 이름을 설정 해주세요. : ")
-    pet = Tamagochi(pet_name)
-    print(pet)
-    break
+print(" 이 게임은 다마고치라는 게임입니다")
+
+pet_name = input("당신의 다마고치 이름을 설정 해주세요. : ")
+pet = Tamagochi(pet_name)
+time.sleep(0.5)
+
+Year = 0
+Month = 0
+Day = 0
+
+while True:
+
+    print(f'오늘은 {Year}년 {Month}월 {Day}일 입니다.')
+    time.sleep(1)
+    print(f'당신의 {pet.name}이 태어났습니다.')
+    time.sleep(1)
+
+    #선택
+    print("\n어떤것을 하시겠습니까.")
+    print("1. 밥 주기")
+    print("2. 놀기")
+    print("3. 영화 ")
+    print("4. 잠자기")
+    print("5. 샤워")
+    print("6. 상태 확인")
+    print("7. 종료")
+
+
+    while True:
+        try:
+            print("-" * 50)
+            choice = input("선택 하십시오 : ")
+            print("-"*50)
+            if choice == '1':
+                pet.feed()
+                break
+            elif choice == '2':
+                pet.play()
+                break
+            elif choice == '3':
+                pet.movie()
+                break
+            elif choice == '4':
+                pet.sleep()
+                break
+            elif choice == '5':
+                pet.wash()
+                break
+            elif choice == '6':
+                pet.stats()
+                break
+            elif choice == '7':
+                sys.exit("다마고치를 종료합니다.")
+            else:
+                print("올바른 선택지를 선택 하십시오")
+        except ValueError:
+            print("올바른 선택지를 선택 하십시오")
+
+    #하루 경과
+    pet.happiness -= random.randint(1,3)
+    pet.tired += random.randint(1,5)
+    pet.hungry += random.randint(1,5)
+    pet.stress += random.randint(1,5)
+
+    #시간 경과
+    Day += 1
+    if Day == 30:
+        Month += 1
+        Day = 0
+        if Month == 12:
+            Year += 1
+            Month = 0
+
+
+
+    time.sleep(1)
+
+
+
+
