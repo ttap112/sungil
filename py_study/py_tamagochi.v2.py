@@ -1,34 +1,36 @@
 import random
 import time
 
-Yes=["Yes","yes","네","응","ㅇ","d"]
-No=["No","no","아니요","아니","ㄴ","s"]
+Yes = ['Yes', 'yes', '네', '응', 'ㅇ', 'd','그래']
+No = ['No', 'no', '아니요' , '아니' , 'ㄴ' , 's', '싫어']
 
 hour = 0
 
-Year=0
-Month=0
-Day=0
+Year = 0
+Month = 0
+Day = 0
 
-#초기설정
 
-#랜덤
+# 초기설정
 
-#시간경과.
+# 랜덤
+
+# 시간경과.
 def 시간경과():
-    global hour,
+    global hour
     if hour >= 24:
         hour = 0
     return hour
 
-#기능
+
+# 기능
 def 기능선택():
     global hour
     while True:
         try:
             time.sleep(3)
             print('1.밥 먹기 \n2.놀기 \n3.영화보기 \n4.잠자기 \n5.씻기 \n6.상태 확인하기')
-            print("-"*50)
+            print("-" * 50)
             time.sleep(1)
 
             choice = input("선택 : ")
@@ -37,19 +39,19 @@ def 기능선택():
 
             if choice == '1':
                 pet.feed()
-                hour+=6
+                hour += 6
                 시간경과()
                 continue
 
-            elif choice =='2':
+            elif choice == '2':
                 pet.play()
-                hour+=6
+                hour += 6
                 시간경과()
                 continue
 
             elif choice == '3':
                 pet.movie()
-                hour+=6
+                hour += 6
                 시간경과()
                 continue
 
@@ -59,7 +61,7 @@ def 기능선택():
 
             elif choice == '5':
                 pet.wash()
-                hour+=6
+                hour += 6
                 시간경과()
                 continue
 
@@ -70,10 +72,11 @@ def 기능선택():
 
         except ValueError:
             print("다시 입력하십시오")
-            print("-"*50)
+            print("-" * 50)
             time.sleep(1)
 
-#하루
+
+# 하루
 def NextDay():
     print(f'{Year}년 {Month}월 {Day}일 경과 ')
     print("-" * 50)
@@ -81,13 +84,15 @@ def NextDay():
 
     print("-" * 50)
     print(
-        f'당신의 {pet.name} 상태 \n배고픔 : {pet.hungry} \n행복도 : {pet.happiness} \n스트레스 : {pet.stress} \n피곤함 : {pet.tired} \n친밀도 : {pet.intimacy} \n감염도 : {pet.disease}')
+        f'당신의 {pet.name} 상태 \n배고픔 : {pet.hungry} \n행복도 : {pet.happiness} \n스트레스 : {pet.stress} \n피곤함 : {pet.tired} \n'
+        f'친밀도 : {pet.intimacy} \n감염도 : {pet.disease}')
     print("-" * 50)
     time.sleep(2)
 
     print(f'당신은 {pet.name}을 위해 무엇을 하시겠습까?')
     print("-" * 50)
     time.sleep(0.2)
+
 
 class Tamagochi:
     def __init__(self, name):
@@ -122,9 +127,9 @@ class Tamagochi:
 
     # 먹이
     def feed(self):
-        self.hungry -= random.randint(5,10)
-        self.happiness += random.randint(1,1)
-        self.stress += random.randint(1,2)
+        self.hungry -= random.randint(5, 10)
+        self.happiness += random.randint(1, 1)
+        self.stress += random.randint(1, 2)
         self.tired += random.randint(1, 1)
         self.intimacy += random.randint(1, 2)
         self.disease += random.randint(-5, 5)
@@ -135,7 +140,8 @@ class Tamagochi:
         time.sleep(0.7)
         print("-" * 50)
         time.sleep(0.7)
-        print(f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
+        print(
+            f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
         print("-" * 50)
         time.sleep(0.7)
 
@@ -143,7 +149,7 @@ class Tamagochi:
     def play(self):
         self.hungry -= random.randint(1, 3)
         self.happiness += random.randint(2, 4)
-        self.stress -= random.randint(3,4)
+        self.stress -= random.randint(3, 4)
         self.tired += random.randint(1, 3)
         self.intimacy += random.randint(1, 3)
         self.disease += random.randint(-10, 6)
@@ -153,7 +159,8 @@ class Tamagochi:
         time.sleep(0.7)
         print("-" * 50)
         time.sleep(0.7)
-        print(f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
+        print(
+            f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
         print("-" * 50)
         time.sleep(0.7)
 
@@ -163,7 +170,7 @@ class Tamagochi:
         self.happiness += random.randint(3, 5)
         self.stress -= random.randint(2, 4)
         self.tired -= random.randint(4, 5)
-        self.intimacy += random.randint(1,3)
+        self.intimacy += random.randint(1, 3)
         self.disease += random.randint(-5, -1)
         if self.disease < 0:
             self.disease = 0
@@ -171,7 +178,8 @@ class Tamagochi:
         time.sleep(0.7)
         print("-" * 50)
         time.sleep(0.7)
-        print(f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
+        print(
+            f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
         print("-" * 50)
         time.sleep(0.7)
 
@@ -190,7 +198,8 @@ class Tamagochi:
         time.sleep(0.7)
         print("-" * 50)
         time.sleep(0.7)
-        print(f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
+        print(
+            f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
         print("-" * 50)
         time.sleep(0.7)
 
@@ -210,15 +219,18 @@ class Tamagochi:
         time.sleep(0.7)
         print("-" * 50)
         time.sleep(0.7)
-        print(f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
+        print(
+            f'배고픔 : {self.hungry} \n행복도 : {self.happiness} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n친밀도 : {self.intimacy} \n감염도 : {self.disease}')
 
     # 스텟 확인
     def stats(self):
-        print(f'이름 : {self.name} \n나이 : {self.age} \n배고픔 : {self.hungry} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n행복도 : {self.happiness} \n친밀도 : {self.intimacy} \n질병 감염도 : {self.disease}')
+        print(
+            f'이름 : {self.name} \n나이 : {self.age} \n배고픔 : {self.hungry} \n스트레스 : {self.stress} \n피곤함 : {self.tired} \n행복도 : {self.happiness} \n친밀도 : {self.intimacy} \n질병 감염도 : {self.disease}')
         print("-" * 50)
         time.sleep(3)
 
-#날짜
+
+# 날짜
 def calculate_year():
     global Day, Month, Year, hour
 
@@ -238,6 +250,19 @@ def calculate_year():
             Month = 0
     return Year, Month, Day, hour
 
+#죽음 이벤트
+def deadEvent():
+
+    # 배고픔
+    if pet.hungry == 0:
+        print(f'당신의 펫은 엄청난 포만감을 느끼고 있다. | {pet.hungry}')
+        time.sleep(0.2)
+    if pet.hungry == 10:
+        print(f'당신의 펫은 출출하지만 아직 배고프지 않은 것 같습니다. | {pet.hungry}')
+    if pet.hungry == 40:
+        print(f'당신의 펫이 약간의 배고픔을 느끼고 있습니다. | {pet.hungry} ')
+
+
 print("")
 print("게임 시작 및 설명을 앞서 먼저 자신의 펫 이름을 정해주십시오.")
 print("-" * 50)
@@ -255,7 +280,7 @@ while True:
     # 이름 결정
     while True:
         try:
-            print(f'정말로 {pet.name} 으로 하시겠습니다  \n---Y|N---')
+            print(f'정말로 {pet.name} 으로 하시겠습니다  \n---선택하십시오.---')
             Choice = input("Yes | No : ")
             print("-" * 50)
             if Choice in Yes:
@@ -341,7 +366,6 @@ while True:
         print("-" * 50)
         time.sleep(0.3)
 
-
         choice1_1 = 0
         # 선택 1-1
         while True:
@@ -350,7 +374,7 @@ while True:
                 print("-" * 50)
 
                 if choice1 == '1' or choice1 == '2':
-                    choice1_1=choice1
+                    choice1_1 = choice1
                     break
                 else:
                     raise ValueError("에러 발생")
@@ -416,8 +440,8 @@ while True:
             print("-" * 50)
             time.sleep(2)
 
-            for i in range(1,11):
-                print("."*i)
+            for i in range(1, 11):
+                print("." * i)
                 time.sleep(0.3)
 
             print("-" * 50)
@@ -426,7 +450,7 @@ while True:
             time.sleep(1)
             break
 
-    Day+=1
+    Day += 1
     time.sleep(0.5)
 
 # 계속 진행
@@ -448,7 +472,7 @@ while True:
         print("펫이 행복도고 너무 낮으며 극심한 우울증으로 인하여 자살하였습니다.")
         break
 
-    elif pet.disease >=100:
+    elif pet.disease >= 100:
         print("펫이 감염도가 너무 높아져 그만 병으로 사망하였습니다.")
         break
 
@@ -473,7 +497,7 @@ while True:
     # 하루 경과
     calculate_year()
 
-    if pet.stress >=100:
+    if pet.stress >= 100:
         print("펫이 과도한 스트레스를 받아 자살하였습니다.")
         break
     if pet.hungry <= 0:
