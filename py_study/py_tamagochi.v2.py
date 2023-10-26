@@ -250,18 +250,45 @@ def calculate_year():
             Month = 0
     return Year, Month, Day, hour
 
-#죽음 이벤트
-def deadEvent():
+# 죽음 이벤트
 
-    # 배고픔
+# 배고픔
+def hungryDead():
+
     if pet.hungry == 0:
         print(f'당신의 펫은 엄청난 포만감을 느끼고 있다. | {pet.hungry}')
         time.sleep(0.2)
     if pet.hungry == 10:
         print(f'당신의 펫은 출출하지만 아직 배고프지 않은 것 같습니다. | {pet.hungry}')
-    if pet.hungry == 40:
+        time.sleep(0.2)
+    elif pet.hungry >= 40:
         print(f'당신의 펫이 약간의 배고픔을 느끼고 있습니다. | {pet.hungry} ')
+        time.sleep(0.2)
+    elif pet.hungry >= 70:
+        print(f'당신의 펫이 매우 배고픈 상태입니다. | {pet.hungry}')
+        time.sleep(0.2)
+    elif pet.hungry >= 90:
+        print(f'당신의 펫이 극심한 배고픔을 느끼고 있습니다. | {pet.hungry}')
+        time.sleep(0.2)
+    elif pet.hungry >= 100:
+        print(f'당신의 펫이 배고픔으로 인하여 죽었습니다. | {pet.hungry}')
+        time.sleep(0.2)
+        exit()
 
+# 행복도
+def happninesEvent():
+    if pet.happiness >= 100:
+        pass
+
+
+# 날짜마다 상태 변동
+def randomStats():
+    pet.stress += random.randint(1, 3)
+    pet.hungry += random.randint(1, 4)
+    pet.happiness -= random.randint(1, 4)
+    pet.tired += random.randint(1, 4)
+
+    return pet.hungry, pet.stress, pet.happiness, pet.tired
 
 print("")
 print("게임 시작 및 설명을 앞서 먼저 자신의 펫 이름을 정해주십시오.")
@@ -456,65 +483,35 @@ while True:
 # 계속 진행
 while True:
     # 죽음 발생
-    if pet.hungry <= 0:
-        print("펫이 너무 허기 해져 죽었습니다")
-        break
 
-    elif pet.stress >= 100:
-        print("펫이 과도한 스트레스를 받아 사망하였습니다.")
-        break
+    #배고픔
+    hungryDead()
 
-    elif pet.tired >= 100:
-        print("펫이 괴로사하였습니다.")
-        break
+    #행복도(행복 지수에 따라 이벤트나 죽음 발생)
 
-    elif pet.happiness <= 0:
-        print("펫이 행복도고 너무 낮으며 극심한 우울증으로 인하여 자살하였습니다.")
-        break
 
-    elif pet.disease >= 100:
-        print("펫이 감염도가 너무 높아져 그만 병으로 사망하였습니다.")
-        break
+    #스트레스
 
-    elif pet.age >= 40:
-        ("펫이 늙어 자연사하였습니다.")
-        break
+    #청결도
+
+    #피로도
+
 
     # 하루 경과
     NextDay()
+    time.sleep(3)
+    Day += 1
 
     # 선택
     기능선택()
 
-    pet.stress += random.randint(1, 3)
-    pet.hungry += random.randint(1, 4)
-    pet.happiness -= random.randint(1, 4)
-    pet.tired += random.randint(1, 4)
+    # 상태 변동
+    randomStats()
 
-    time.sleep(3)
-    Day += 1
-
-    # 하루 경과
+    # 날짜 변동
     calculate_year()
-
-    if pet.stress >= 100:
-        print("펫이 과도한 스트레스를 받아 자살하였습니다.")
-        break
-    if pet.hungry <= 0:
-        print("펫이 굶어 죽었습니다.")
-        break
-    if pet.happiness <= 0:
-        print("펫이 극심한 우울증으로 인하여 자살하였습니다.")
-        break
-    if pet.tired >= 100:
-        print("펫이 과로사 하였습니다.")
-        break
-    if pet.disease >= 100:
-        print("펫이 극심한 병에 걸려 죽었습니다.")
-        break
 
     # 이벤트
 
     # 친밀도에 따른 이벤트
 
-    # 행복도에 따른 이벤트
